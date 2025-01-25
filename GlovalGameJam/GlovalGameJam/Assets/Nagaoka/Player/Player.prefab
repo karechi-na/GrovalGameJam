@@ -121,7 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bubbleFactory: {fileID: 8031836062460386950}
+  m_initRotation: {x: 0, y: 0, z: 0}
   m_horizontalSpeed: 25
+  m_verticalSpeed: 25
   m_liftForce: 1000
   m_downForce: 100
   m_downDistance: 2
@@ -151,7 +153,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1 &4924882834472165456
 GameObject:
@@ -199,5 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bubblePrefab: {fileID: 2421082953871531001, guid: 5d4346341d5aacf40890e88015dedb3f, type: 3}
   m_playerTransform: {fileID: 5236561461271373567}
-  m_bubbleCountLimit: 2
+  m_initBubble: 5
+  m_bubbleCountLimit: 20
   bubbleTag: Bubble
+  m_bubbleList: []

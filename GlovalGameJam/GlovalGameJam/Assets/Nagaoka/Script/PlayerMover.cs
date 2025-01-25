@@ -5,6 +5,8 @@ public class PlayerMover : MonoBehaviour
     [SerializeField]
     private BubbleFactory m_bubbleFactory = null;
 
+    [SerializeField] private Vector3 m_initRotation = Vector3.zero;
+
     [SerializeField]
     private float m_horizontalSpeed = 0;
 
@@ -62,6 +64,14 @@ public class PlayerMover : MonoBehaviour
         {
             Down();
             DownMove();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector3 currentRotation = transform.rotation.eulerAngles;
+
+            // XÇ∆YÇ0Ç…ÇµÇƒZé≤ÇÃâÒì]Çï€éù
+            transform.rotation = Quaternion.Euler(m_initRotation);
         }
     }
 
@@ -149,4 +159,8 @@ public class PlayerMover : MonoBehaviour
         m_isUp = true;
     }
 
+    private void InitRotation()
+    {
+
+    }
 }

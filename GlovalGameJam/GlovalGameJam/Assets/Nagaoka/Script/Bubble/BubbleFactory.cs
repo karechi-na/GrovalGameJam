@@ -10,6 +10,9 @@ public class BubbleFactory : MonoBehaviour
     private Transform m_playerTransform = null;
 
     [SerializeField]
+    private int m_initBubble = 0;
+
+    [SerializeField]
     private int m_bubbleCountLimit = 0;
 
     [SerializeField]
@@ -31,6 +34,11 @@ public class BubbleFactory : MonoBehaviour
     private void Start()
     {
         m_playerMover = GetComponentInParent<PlayerMover>();
+
+        for (int i = 0; i < m_initBubble; i++)
+        {
+            SpawnSphere();
+        }
     }
 
     void Update()
