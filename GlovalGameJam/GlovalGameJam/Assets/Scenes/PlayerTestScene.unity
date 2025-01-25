@@ -426,6 +426,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3276821423061985951, guid: d2a63f5f312a2944887a75df20c8b540, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276821423061985951, guid: d2a63f5f312a2944887a75df20c8b540, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5236561461271373567, guid: d2a63f5f312a2944887a75df20c8b540, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -469,6 +477,10 @@ PrefabInstance:
     - target: {fileID: 5236561461271373567, guid: d2a63f5f312a2944887a75df20c8b540, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031836062460386950, guid: d2a63f5f312a2944887a75df20c8b540, type: 3}
+      propertyPath: m_initBubble
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -43,6 +43,10 @@ public class PlayerMover : MonoBehaviour
 
     private bool m_isUp = false;
 
+    public bool IsDown {  get { return m_isDown; } }
+
+    public bool IsUp {  get { return m_isUp; } }
+
     // Start is called before the first frame update
     void Start()
     {
