@@ -1,12 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
     [SerializeField]
+    private BubbleFactory m_bubbleFactory = null;
+
+    [SerializeField]
     private float m_horizontalSpeed = 0;
+
+    [SerializeField]
+    private float m_verticalSpeed = 0;
 
     [SerializeField]
     private float m_liftForce = 0;
@@ -47,16 +50,8 @@ public class PlayerMover : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            SetDownOnLeftClick();
-        }
-        if (!m_isDown && Input.GetMouseButtonDown(1))
-        {
-            SetUpOnRightClick();
-        }
-
         HolizontalMove();
+        VerticalMove();
 
         if (m_isUp)
         {
@@ -74,6 +69,12 @@ public class PlayerMover : MonoBehaviour
     {
         float move = Input.GetAxis("Horizontal"); // A/Dキーまたは←/→キー
         m_playerRb.velocity = new Vector3(move * m_horizontalSpeed, m_playerRb.velocity.y, m_playerRb.velocity.z);
+    }
+
+    private void VerticalMove()
+    {
+        float move = Input.GetAxis("Vertical");
+        m_playerRb.velocity = new Vector3(m_playerRb.velocity.x, m_playerRb.velocity.y, move * m_verticalSpeed);
     }
 
     private void Down()
@@ -134,14 +135,14 @@ public class PlayerMover : MonoBehaviour
     }
 
 
-    private void SetDownOnLeftClick()
+    public  void SetDownOnLeftClick()
     {
         m_isUp = false;
         m_isUpBasicPos = false;
         m_isDown = true;
     }
 
-    private void SetUpOnRightClick()
+    public void SetUpOnRightClick()
     {
         m_isDown = false;
         m_isDownBasicPos = false;
