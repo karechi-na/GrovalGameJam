@@ -11,7 +11,7 @@ public class BubbeMover : MonoBehaviour
 
     [SerializeField]
     private float m_bubbleDistance = 0;
-         
+
     private Vector3 m_thisTransform = Vector3.zero;
 
     Rigidbody m_thisrb = null;

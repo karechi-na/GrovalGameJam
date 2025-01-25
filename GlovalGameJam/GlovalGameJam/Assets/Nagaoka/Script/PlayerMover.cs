@@ -66,7 +66,7 @@ public class PlayerMover : MonoBehaviour
             DownMove();
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector3 currentRotation = transform.rotation.eulerAngles;
 
@@ -98,10 +98,10 @@ public class PlayerMover : MonoBehaviour
             m_downDesirePos = m_downBasicPos;
             m_downDesirePos.y -= m_downDistance;
         }
-        
+
         Vector3 currentPos = this.transform.position;
 
-        if(Mathf.Abs(m_downBasicPos.y - currentPos.y) > m_downDistance)
+        if (Mathf.Abs(m_downBasicPos.y - currentPos.y) > m_downDistance)
         {
             m_isDown = false;
             m_isDownBasicPos = false;
@@ -124,14 +124,14 @@ public class PlayerMover : MonoBehaviour
 
         Vector3 currentPos = this.transform.position;
 
-        if (Mathf.Abs(m_upBasicPos.y - currentPos.y)  >  m_upDistance)
+        if (Mathf.Abs(m_upBasicPos.y - currentPos.y) > m_upDistance)
         {
             m_isUp = false;
             m_isUpBasicPos = false;
             m_playerRb.constraints |= RigidbodyConstraints.FreezePositionY;
             m_playerRb.useGravity = true;
         }
-        
+
     }
 
     private void DownMove()
@@ -145,7 +145,7 @@ public class PlayerMover : MonoBehaviour
     }
 
 
-    public  void SetDownOnLeftClick()
+    public void SetDownOnLeftClick()
     {
         m_isUp = false;
         m_isUpBasicPos = false;

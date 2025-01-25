@@ -29,7 +29,7 @@ public class BubbleFactory : MonoBehaviour
 
     public int BubbleCount { get { return m_bubbleList.Count; } }
 
-    public bool IsBubbleCountLimit {  get { return m_isbubbleCountLimit; } }
+    public bool IsBubbleCountLimit { get { return m_isbubbleCountLimit; } }
 
     private void Start()
     {
@@ -50,7 +50,7 @@ public class BubbleFactory : MonoBehaviour
             m_playerMover.SetUpOnRightClick();
             SpawnSphere();
         }
-        if(Input.GetMouseButtonDown(0) && m_bubbleList.Count > 0)//左クリック
+        if (Input.GetMouseButtonDown(0) && m_bubbleList.Count > 0)//左クリック
         {
             m_playerMover.SetDownOnLeftClick();
             DestroySphere();
@@ -72,7 +72,7 @@ public class BubbleFactory : MonoBehaviour
     {
         for (int i = 0; i < m_bubbleList.Count; i++)
         {
-            if(m_bubbleList[i] == null)
+            if (m_bubbleList[i] == null)
             {
                 return;
             }
