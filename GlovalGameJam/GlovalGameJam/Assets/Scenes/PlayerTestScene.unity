@@ -480,7 +480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8031836062460386950, guid: d2a63f5f312a2944887a75df20c8b540, type: 3}
       propertyPath: m_initBubble
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

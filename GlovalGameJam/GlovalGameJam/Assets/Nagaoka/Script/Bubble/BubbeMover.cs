@@ -56,11 +56,12 @@ public class BubbeMover : MonoBehaviour
     {
         Vector3 desire = Vector3.zero;
         desire.x = Clamp(this.transform.position.x, m_playerTransform.position.x - m_bubbleDistance, m_playerTransform.position.x + m_bubbleDistance);
-        desire.y = Clamp(this.transform.position.y, m_playerTransform.position.y - m_bubbleDistance, m_playerTransform.position.x + m_bubbleDistance);
+        desire.y = Clamp(this.transform.position.y, m_playerTransform.position.y - m_bubbleDistance, m_playerTransform.position.y + m_bubbleDistance);
         desire.z = Clamp(this.transform.position.z, m_playerTransform.position.z - m_bubbleDistance, m_playerTransform.position.z + m_bubbleDistance);
 
-        m_thisrb.AddForce(desire);
-        //this.transform.position = desire.normalized;
+        this.transform.position = desire;
+        m_thisrb.velocity = Vector3.zero;
+        
     }
 
     float Clamp(float value,float min,float max)

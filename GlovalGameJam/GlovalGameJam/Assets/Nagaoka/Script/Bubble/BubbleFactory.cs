@@ -27,6 +27,8 @@ public class BubbleFactory : MonoBehaviour
 
     bool m_isbubbleCountLimit = false;
 
+   
+
     public int BubbleCount { get { return m_bubbleList.Count; } }
 
     public bool IsBubbleCountLimit { get { return m_isbubbleCountLimit; } }
@@ -104,4 +106,6 @@ public class BubbleFactory : MonoBehaviour
             return false;
         }
     }
+
+    
 }

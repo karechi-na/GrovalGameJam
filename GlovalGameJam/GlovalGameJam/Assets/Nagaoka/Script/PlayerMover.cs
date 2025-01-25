@@ -43,6 +43,8 @@ public class PlayerMover : MonoBehaviour
 
     private bool m_isUp = false;
 
+    int m_bubbleLife = 0;
+
     public bool IsDown {  get { return m_isDown; } }
 
     public bool IsUp {  get { return m_isUp; } }
@@ -154,6 +156,7 @@ public class PlayerMover : MonoBehaviour
         m_isUp = false;
         m_isUpBasicPos = false;
         m_isDown = true;
+        m_bubbleLife -= 1;
     }
 
     public void SetUpOnRightClick()
@@ -161,6 +164,8 @@ public class PlayerMover : MonoBehaviour
         m_isDown = false;
         m_isDownBasicPos = false;
         m_isUp = true;
+
+        m_bubbleLife += 1;
     }
 
     private void InitRotation()
