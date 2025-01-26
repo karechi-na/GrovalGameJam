@@ -13,6 +13,9 @@ public class StageGimmick : MonoBehaviour
     [Header("温水域内での生成数を増やすため")]
     [SerializeField] private BubbleFactory bubbleFactory;
 
+    [Header("汚水域")]
+    [SerializeField] private GameObject sewage;
+
     [Header("急流域の開始座標、終了地点の座標")]
     public Vector3 rapidsPositionStart;
     public Vector3 rapidsPositioEnd;
@@ -180,6 +183,7 @@ public class StageGimmick : MonoBehaviour
     /// </summary>
     public IEnumerator ColdWaterGommic()
     {
+        //waitTime秒待機
         yield return new WaitForSeconds(waitTime);
     }
 
@@ -188,11 +192,14 @@ public class StageGimmick : MonoBehaviour
     /// </summary>
     public void SewageAreaGimmick()
     {
+        //表示する
+        sewage.SetActive(true);
 
         //汚水域を抜けると実行
         if(playerTransform.position == sewageAreaPositionEnd)
         {
-
+            //非表示にする
+            sewage.SetActive(false);
         }
     }
 }
