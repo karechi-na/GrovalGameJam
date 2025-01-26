@@ -28,9 +28,21 @@ public class StageGimmick : MonoBehaviour
     public Vector3 sewageAreaPositionStart;
     public Vector3 sewageAreaPositionEnd;
 
+    [Header("プレイヤーのrigidbody")]
+    [SerializeField] private Rigidbody playerRb;
+
+    [Header("急流エリアでのVector3の各方向への力の追加")]
+    [SerializeField] private Vector3 rapidsForce = new Vector3();
+
+    [Header("宝箱を持っている時の減速値")]
+    [SerializeField] private Vector3 havingChestSpeed = new Vector3();
+
+    //ギミックで変化した速度を戻す変数
+    private Vector3 speedReset = new Vector3(0.0f, 0.0f, 0.0f);
+
     void Start()
     {
-        
+        playerRb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -82,11 +94,12 @@ public class StageGimmick : MonoBehaviour
     /// </summary>
     public void RapidsGimmick()
     {
+        playerRb.AddForce(rapidsForce);
 
         //急流エリアを抜けた時実行
         if(playerTransform.position == rapidsPositioEnd)
         {
-            
+            playerRb.AddForce(speedReset);
         }
     }
 
@@ -95,11 +108,12 @@ public class StageGimmick : MonoBehaviour
     /// </summary>
     public void TreasureChestGimmick()
     {
+        playerRb.AddForce(havingChestSpeed);
 
         //宝箱を手放すと実行
         if(havingChest == false)
         {
-
+            playerRb.AddForce(speedReset);
         }
     }
 
