@@ -80,8 +80,8 @@ public class GameManager : MonoBehaviour
     /// if(GoalChecker())‚ÅƒS[ƒ‹”»’è‚Å‚«‚Ü‚·B
     /// </summary>
     /// <returns></returns>
-    private bool GoalChecker()
-    {
-        return goal.LeachGoal();
-    }
+    //private bool GoalChecker()
+    //{
+    //   // return goal.LeachGoal();
+    //}
 }

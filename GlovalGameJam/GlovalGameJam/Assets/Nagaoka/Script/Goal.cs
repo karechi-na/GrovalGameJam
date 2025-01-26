@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    //このスクリプトをOnTriggerのゲームオブジェクトにアタッチしてください。
+    private bool m_goal = false;
+
+    public bool isGoal {  get { return m_goal; } }
     private void OnTriggerEnter(Collider other)
     {
-        LeachGoal();
+            LeachGoal(other.gameObject);
     }
 
-    public bool LeachGoal()
+    public void LeachGoal(GameObject other)
     {
-        return true;
+        if (other.CompareTag("Player"))
+        {
+            m_goal = true;
+        }
     }
 }
