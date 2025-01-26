@@ -4,6 +4,12 @@ using UnityEngine;
 public class BubbleFactory : MonoBehaviour
 {
     [SerializeField]
+    private EffectManager m_effectManager = null;
+
+    [SerializeField]
+    private SEManager m_SEManager = null;
+
+    [SerializeField]
     private GameObject m_bubblePrefab = null;
 
     [SerializeField]
@@ -18,7 +24,6 @@ public class BubbleFactory : MonoBehaviour
     [SerializeField]
     private string bubbleTag = null;
 
-    [SerializeField]
     private List<GameObject> m_bubbleList = new List<GameObject>();
 
     private PlayerMover m_playerMover = null;
@@ -41,7 +46,14 @@ public class BubbleFactory : MonoBehaviour
 
         for (int i = 0; i < m_initBubble; i++)
         {
-            SpawnSphere();
+            //SE鳴らしたくないのでSpawnSphereと同じ処理ベタ打ちしてます
+            GameObject bubble = Instantiate(m_bubblePrefab, m_playerTransform.position, Quaternion.identity);
+
+            m_bubbleList.Add(bubble);
+
+            bubble.transform.SetParent(this.transform);
+
+            bubble.transform.localPosition = new Vector3(0, 1, 0);
         }
     }
 
@@ -70,6 +82,8 @@ public class BubbleFactory : MonoBehaviour
         bubble.transform.SetParent(this.transform);
 
         bubble.transform.localPosition = new Vector3(0, 1, 0);
+
+        m_SEManager.OnPlayOneShot(SEManager.SoundEffectName.BubbleCreate);
     }
 
     void DestroySphere()
@@ -87,6 +101,10 @@ public class BubbleFactory : MonoBehaviour
             {
                 // 見つかった場合、そのオブジェクトを削除
                 m_bubbleList.RemoveAt(i); // リストから削除
+
+                m_SEManager.OnPlayOneShot(SEManager.SoundEffectName.BubbleBreak);
+
+                m_effectManager.OnPlayEffect(bubble.transform.position, EffectManager.EffectType.SubEmitterDeath);
 
                 Destroy(bubble); // オブジェクトを削除
 

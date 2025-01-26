@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8243428725152976136}
   - component: {fileID: 2779658243926034154}
   - component: {fileID: 7255459798893671406}
+  - component: {fileID: 8103838103663617602}
   m_Layer: 0
-  m_Name: SubEmitterDeath (1)
+  m_Name: SubEmitterDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +42,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6806822478390256506}
   serializedVersion: 8
-  lengthInSec: 0.1
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
@@ -4853,3 +4854,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8103838103663617602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6806822478390256506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ca836e2d3809e43a3bdf77feef9dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
