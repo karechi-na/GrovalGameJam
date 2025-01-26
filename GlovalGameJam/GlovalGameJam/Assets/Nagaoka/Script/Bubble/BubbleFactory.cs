@@ -107,5 +107,13 @@ public class BubbleFactory : MonoBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// ‰Šúƒoƒuƒ‹ŒÂ”‚ÆŒ»İ‚ÌŒÂ”‚Ì·‚ğ•Ô‚µ‚Ü‚·B
+    /// </summary>
+    /// <returns></returns>
+    public int BubbleTracker()
+    {
+        int bubbleGap = m_bubbleList.Count - m_initBubble;
+        return bubbleGap;
+    }
 }

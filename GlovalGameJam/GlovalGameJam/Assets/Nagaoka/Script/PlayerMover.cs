@@ -27,6 +27,8 @@ public class PlayerMover : MonoBehaviour
 
     private Rigidbody m_playerRb = null;
 
+    Vector3 m_initPos = Vector3.zero;
+
     Vector3 m_downBasicPos = Vector3.zero;
 
     Vector3 m_downDesirePos = Vector3.zero;
@@ -52,6 +54,7 @@ public class PlayerMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_initPos = this.transform.position;
         m_playerRb = GetComponent<Rigidbody>();
     }
 
@@ -107,7 +110,7 @@ public class PlayerMover : MonoBehaviour
 
         Vector3 currentPos = this.transform.position;
 
-        if (Mathf.Abs(m_downBasicPos.y - currentPos.y) > m_downDistance)
+        if (this.transform.position.y < m_initPos.y + m_downDistance * m_bubbleFactory.BubbleTracker())
         {
             m_isDown = false;
             m_isDownBasicPos = false;
@@ -130,7 +133,7 @@ public class PlayerMover : MonoBehaviour
 
         Vector3 currentPos = this.transform.position;
 
-        if (Mathf.Abs(m_upBasicPos.y - currentPos.y) > m_upDistance)
+        if (this.transform.position.y > m_initPos.y + m_upDistance * m_bubbleFactory.BubbleTracker())
         {
             m_isUp = false;
             m_isUpBasicPos = false;
