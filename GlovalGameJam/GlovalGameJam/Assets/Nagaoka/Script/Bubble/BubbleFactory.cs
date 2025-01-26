@@ -25,7 +25,7 @@ public class BubbleFactory : MonoBehaviour
 
     int m_bubbleCount = 0;
 
-    bool m_isbubbleCountLimit = false;
+    public bool m_isbubbleCountLimit = false;
 
    
 
@@ -61,7 +61,7 @@ public class BubbleFactory : MonoBehaviour
         }
     }
 
-    void SpawnSphere()
+    public void SpawnSphere()
     {
         GameObject bubble = Instantiate(m_bubblePrefab, m_playerTransform.position, Quaternion.identity);
 
