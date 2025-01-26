@@ -7,7 +7,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public int available_bubble = 10;
-    private int max_available_bubble;
+    public int max_available_bubble;
     private int current_bubble = 5;
     public TextMeshProUGUI available_txt;
     public TextMeshProUGUI current_txt;
