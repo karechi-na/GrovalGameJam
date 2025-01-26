@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: texture-709723
+  m_Name: For Bricks_texture-709723
   m_Shader: {fileID: 4800000, guid: 7719a11c5c81e4b47818b157dcfe3f46, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -25,7 +25,7 @@ Material:
     m_TexEnvs:
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 84760763bead7dd4c9720ba6d2ee78a7, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Scale: {x: 0.001, y: 0.003}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
