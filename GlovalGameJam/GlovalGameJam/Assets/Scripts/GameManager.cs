@@ -15,9 +15,14 @@ public class GameManager : MonoBehaviour
     public GameObject all_restart_points;
     public GameObject current_restart_point;
     private GameObject fail_text;
+
+    public Goal goal = null;
+
+    private BubbleFactory bubbleFactory = null;
     // Start is called before the first frame update
     void Start()
     {
+        bubbleFactory = bubble.GetComponent<BubbleFactory>();
         fail_text = GameObject.Find("Fail Text (TMP)");
         fail_text.SetActive(false);
         max_available_bubble = available_bubble;
@@ -35,6 +40,7 @@ public class GameManager : MonoBehaviour
             available_bubble -= 1;
             available_txt.text = "Available Bubble: " + available_bubble.ToString();
             current_bubble = bubble.GetComponent<BubbleFactory>().BubbleCount;
+            current_txt.text = "Current Bubble: " + current_bubble.ToString() + "/" + bubbleFactory.BubbleCountLimit.ToString();
             Debug.Log(current_bubble);
         }
         if (available_bubble <= 0){
@@ -52,6 +58,9 @@ public class GameManager : MonoBehaviour
         player.transform.rotation = current_restart_point.transform.rotation;
         available_bubble = max_available_bubble;
         available_txt.text = "Available Bubble: " + available_bubble.ToString();
+        bubbleFactory.DestroyAllSphere();
+       bubbleFactory.RespawnBubble();
+
         // reset the current bubble around player   
     }
 
@@ -64,5 +73,15 @@ public class GameManager : MonoBehaviour
         }
         Time.timeScale = 1;
         fail_text.SetActive(false);
+    }
+
+    /// <summary>
+    /// ゴールに到達したかどうか判定できます。
+    /// if(GoalChecker())でゴール判定できます。
+    /// </summary>
+    /// <returns></returns>
+    private bool GoalChecker()
+    {
+        return goal.LeachGoal();
     }
 }

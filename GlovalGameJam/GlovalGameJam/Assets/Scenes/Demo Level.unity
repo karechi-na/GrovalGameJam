@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28021237, g: 0.20383024, b: 0.3618694, a: 1}
+  m_IndirectSpecularColor: {r: 0.2801414, g: 0.20378724, b: 0.36178875, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20474,6 +20474,7 @@ MonoBehaviour:
   bubble: {fileID: 1789081658}
   all_restart_points: {fileID: 18554750}
   current_restart_point: {fileID: 0}
+  goal: {fileID: 0}
 --- !u!1 &555314664
 GameObject:
   m_ObjectHideFlags: 0

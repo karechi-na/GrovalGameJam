@@ -31,6 +31,8 @@ public class BubbleFactory : MonoBehaviour
 
     public int BubbleCount { get { return m_bubbleList.Count; } }
 
+    public int BubbleCountLimit { get { return m_bubbleCountLimit; } }
+
     public bool IsBubbleCountLimit { get { return m_isbubbleCountLimit; } }
 
     private void Start()
@@ -90,6 +92,42 @@ public class BubbleFactory : MonoBehaviour
 
                 return; // 1つだけ削除したら終了
             }
+        }
+    }
+
+    public void DestroyAllSphere()
+    {
+        int iLimit = m_bubbleList.Count;
+        for (int i = 0; i < iLimit; i++)
+        {
+            if (m_bubbleList[i] == null)
+            {
+                continue;
+            }
+            GameObject bubble = m_bubbleList[i];
+
+            if (bubble.CompareTag(bubbleTag))
+            {
+                // 見つかった場合、そのオブジェクトを削除
+                // リストから削除
+
+                Destroy(bubble); // オブジェクトを削除
+            }
+        }
+        m_bubbleList.Clear();
+    }
+
+    public void RespawnBubble()
+    {
+        for (int i = 0; i < m_initBubble; i++)
+        {
+            GameObject bubble = Instantiate(m_bubblePrefab, m_playerTransform.position, Quaternion.identity);
+
+            m_bubbleList.Add(bubble);
+
+            bubble.transform.SetParent(this.transform);
+
+            bubble.transform.localPosition = new Vector3(0, 1, 0);
         }
     }
 
